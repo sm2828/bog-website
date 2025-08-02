@@ -1,6 +1,5 @@
 import { useState, useMemo, useRef } from "react";
 
-import Button from "./components/Button";
 import Header from "./components/Header";
 import TrueFocus from "./components/TrueFocus";
 import LightRays from "./components/LightRays";

@@ -4,7 +4,7 @@ interface HeaderProps {
   title?: string;
 }
 
-function Header({ title = "Bog" }: HeaderProps) {
+function Header({ title: _title = "Bog" }: HeaderProps) {
   const navItems = [
     { label: "merch", href: "https://store.fun/bog" },
     { label: "unbogline", href: "https://jup.ag/tokens/EXgaZEkfdJMGhaK6uMcC7qnsFodEsdaLii8p442ppump" },
