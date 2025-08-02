@@ -6,6 +6,7 @@ import TrueFocus from "./components/TrueFocus";
 import LightRays from "./components/LightRays";
 import InfiniteMenu from "./components/InfiniteMenu";
 import Crosshair from "./components/Crosshair";
+import LoadingScreen from "./components/LoadingScreen";
 
 // Fisher-Yates shuffle algorithm
 function shuffleArray<T>(array: T[]): T[] {
@@ -19,6 +20,7 @@ function shuffleArray<T>(array: T[]): T[] {
 
 function App() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   const originalItems = [
     {
@@ -109,7 +111,7 @@ function App() {
     {
       image: '/bog20.jpeg',
       link: '#',
-      title: 'Dr. Bog',
+      title: 'Dr. JinBog',
     },
     {
       image: '/bog21.jpeg',
@@ -126,50 +128,67 @@ function App() {
       link: '#',
       title: 'Bogsy',
     },
+    {
+      image: '/bog24.jpeg',
+      link: '#',
+      title: 'Bog Forgive Me',
+    },
+    {
+      image: '/bog25.jpeg',
+      link: '#',
+      title: 'Boglined',
+    },
     
   ];
 
   // Shuffle items randomly on every render
   const items = useMemo(() => shuffleArray(originalItems), []);
 
+  const handleLoadingComplete = () => {
+    setIsLoading(false);
+  };
+
   return (
-    <div className="min-h-screen relative" ref={containerRef}>
-      <Crosshair containerRef={containerRef} color="#ffffff" />
-      
-      <div className="absolute inset-0 z-10">
-        <LightRays
-          raysOrigin="top-center"
-          raysColor="#ffffff"
-          raysSpeed={1.5}
-          lightSpread={0.6}
-          rayLength={1.5}
-          followMouse={true}
-          mouseInfluence={0.1}
-          noiseAmount={0.1}
-          distortion={0.05}
-          className="w-full h-full"
-        />
-      </div>
-      
-      <Header />
-      
-      <main className="flex min-h-screen flex-col items-center justify-start gap-16 pt-20 pb-8 text-white text-center relative z-20">
-        <div style={{position: 'relative', height: '400px'}}>
-          <TrueFocus 
-            sentence="Bog The World"
-            manualMode={false}
-            blurAmount={8}
-            borderColor="red"
-            animationDuration={2}
-            pauseBetweenAnimations={1}
+    <>
+      {isLoading && <LoadingScreen onLoadingComplete={handleLoadingComplete} />}
+      <div className="min-h-screen relative" ref={containerRef}>
+        <Crosshair containerRef={containerRef} color="#ffffff" />
+        
+        <div className="absolute inset-0 z-10">
+          <LightRays
+            raysOrigin="top-center"
+            raysColor="#ffffff"
+            raysSpeed={1.5}
+            lightSpread={0.6}
+            rayLength={1.5}
+            followMouse={true}
+            mouseInfluence={0.1}
+            noiseAmount={0.1}
+            distortion={0.05}
+            className="w-full h-full"
           />
         </div>
         
-        <div style={{ height: '500px', position: 'relative', width: '100%' }}>
-          <InfiniteMenu items={items}/>
-        </div>
-      </main>
-    </div>
+        <Header />
+        
+        <main className="flex min-h-screen flex-col items-center justify-start gap-16 pt-20 pb-8 text-white text-center relative z-20">
+          <div style={{position: 'relative', height: '400px'}}>
+            <TrueFocus 
+              sentence="Bog The World"
+              manualMode={false}
+              blurAmount={8}
+              borderColor="red"
+              animationDuration={2}
+              pauseBetweenAnimations={1}
+            />
+          </div>
+          
+          <div style={{ height: '500px', position: 'relative', width: '100%' }}>
+            <InfiniteMenu items={items}/>
+          </div>
+        </main>
+      </div>
+    </>
   );
 }
 
