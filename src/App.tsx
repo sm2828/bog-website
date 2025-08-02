@@ -1,4 +1,4 @@
-import { useState, useMemo, useRef } from "react";
+import { useState, useMemo, useRef, useCallback } from "react";
 
 import Header from "./components/Header";
 import TrueFocus from "./components/TrueFocus";
@@ -21,6 +21,7 @@ function shuffleArray<T>(array: T[]): T[] {
 function App() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [refreshKey, setRefreshKey] = useState(0);
 
   const originalItems = [
     {
@@ -142,7 +143,11 @@ function App() {
   ];
 
   // Shuffle items randomly on every render
-  const items = useMemo(() => shuffleArray(originalItems), []);
+  const items = useMemo(() => shuffleArray(originalItems), [refreshKey]);
+
+  const handleRefresh = useCallback(() => {
+    setRefreshKey(prev => prev + 1);
+  }, []);
 
   const handleLoadingComplete = () => {
     setIsLoading(false);
@@ -185,7 +190,7 @@ function App() {
           </div>
           
           <div style={{ height: '500px', position: 'relative', width: '100%' }}>
-            <InfiniteMenu items={items}/>
+            <InfiniteMenu items={items} onRefresh={handleRefresh}/>
           </div>
         </main>
       </div>
