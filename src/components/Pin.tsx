@@ -39,10 +39,10 @@ const Pin: FC<PropsWithChildren<{ text: string }>> = ({ children, text }) => {
           <div className="absolute inset-x-0 top-0 flex justify-center">
             {text}
           </div>
-          <motion.div className="absolute right-1/2 bottom-1/2 h-20 w-px translate-x-1/2 translate-y-3.5 bg-linear-to-b from-transparent to-cyan-500 blur-[2px] group-hover/pin:h-32" />
-          <motion.div className="absolute right-1/2 bottom-1/2 h-20 w-px translate-x-1/2 translate-y-3.5 bg-linear-to-b from-transparent to-cyan-500 group-hover/pin:h-32" />
-          <motion.div className="absolute right-1/2 bottom-1/2 z-40 size-1 translate-x-1/2 translate-y-4 rounded-full bg-cyan-600 blur-[3px]" />
-          <motion.div className="absolute right-1/2 bottom-1/2 z-40 size-0.5 translate-x-1/2 translate-y-4 rounded-full bg-cyan-300" />
+          <motion.div className="absolute right-1/2 bottom-1/2 h-20 w-px translate-x-1/2 translate-y-3.5 bg-linear-to-b from-transparent to-gray-400 blur-[2px] group-hover/pin:h-32" />
+          <motion.div className="absolute right-1/2 bottom-1/2 h-20 w-px translate-x-1/2 translate-y-3.5 bg-linear-to-b from-transparent to-gray-400 group-hover/pin:h-32" />
+          <motion.div className="absolute right-1/2 bottom-1/2 z-40 size-1 translate-x-1/2 translate-y-4 rounded-full bg-gray-500 blur-[3px]" />
+          <motion.div className="absolute right-1/2 bottom-1/2 z-40 size-0.5 translate-x-1/2 translate-y-4 rounded-full bg-gray-300" />
         </div>
       </motion.div>
     </div>
