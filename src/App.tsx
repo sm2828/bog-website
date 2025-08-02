@@ -6,6 +6,7 @@ import LightRays from "./components/LightRays";
 import InfiniteMenu from "./components/InfiniteMenu";
 import Crosshair from "./components/Crosshair";
 import LoadingScreen from "./components/LoadingScreen";
+import MobileOrientationBlocker from "./components/MobileOrientationBlocker";
 
 // Fisher-Yates shuffle algorithm
 function shuffleArray<T>(array: T[]): T[] {
@@ -150,6 +151,7 @@ function App() {
   return (
     <>
       {isLoading && <LoadingScreen onLoadingComplete={handleLoadingComplete} />}
+      <MobileOrientationBlocker />
       <div className="min-h-screen relative" ref={containerRef}>
         <Crosshair containerRef={containerRef} color="#ffffff" />
         
