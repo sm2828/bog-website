@@ -193,6 +193,10 @@ function App() {
             <InfiniteMenu items={items} onRefresh={handleRefresh}/>
           </div>
         </main>
+        
+        <footer className="text-center py-4 text-gray-400 text-sm relative z-20">
+          $Bog is a meme coin with no value or utility. It's just for fun. Not financial advice. Use at your own risk.
+        </footer>
       </div>
     </>
   );
