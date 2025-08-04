@@ -6,8 +6,6 @@ import LightRays from "./components/LightRays";
 import InfiniteMenu from "./components/InfiniteMenu";
 import Crosshair from "./components/Crosshair";
 import LoadingScreen from "./components/LoadingScreen";
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import MobileOrientationBlocker from "./components/MobileOrientationBlocker";
 
 // Fisher-Yates shuffle algorithm
 function shuffleArray<T>(array: T[]): T[] {
