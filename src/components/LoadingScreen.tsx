@@ -7,6 +7,25 @@ interface LoadingScreenProps {
 const LoadingScreen: React.FC<LoadingScreenProps> = ({ onLoadingComplete }) => {
   const [isVisible, setIsVisible] = useState(true);
   const [isFading, setIsFading] = useState(false);
+  const [isMobile, setIsMobile] = useState(() => {
+    // Initialize with current window size to prevent flash
+    return typeof window !== 'undefined' && window.innerWidth < 768;
+  });
+
+  useEffect(() => {
+    // Check for mobile orientation
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    // Initial check
+    checkMobile();
+
+    // Listen for resize events
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   useEffect(() => {
     // Wait for all resources to load
@@ -48,7 +67,7 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onLoadingComplete }) => {
       }}
     >
       <img 
-        src="/pampet.jpg" 
+        src={isMobile ? "/bog-loading-mobile.jpeg" : "/pampet.jpg"} 
         alt="Loading..." 
         className="w-full h-full object-cover pointer-events-none select-none"
         draggable={false}

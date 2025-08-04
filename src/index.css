@@ -52,3 +52,28 @@ body::before {
 ::-webkit-scrollbar-thumb:hover {
   background: #00ff88;
 }
+
+/* Mobile-specific optimizations */
+@media (max-width: 768px) {
+  /* Ensure touch targets are large enough */
+  button, a, [role="button"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Improve text legibility on mobile */
+  body {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+  
+  /* Prevent horizontal scroll on mobile */
+  html, body {
+    overflow-x: hidden;
+  }
+  
+  /* Mobile-specific scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+}

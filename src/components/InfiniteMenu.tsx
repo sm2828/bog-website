@@ -1294,14 +1294,14 @@ const InfiniteMenu: FC<InfiniteMenuProps> = ({ items = [], onRefresh }) => {
       <canvas
         id="infinite-grid-menu-canvas"
         ref={canvasRef}
-        className="cursor-grab w-full h-full overflow-hidden relative outline-none active:cursor-grabbing"
+        className="cursor-grab w-full h-full overflow-hidden relative outline-none active:cursor-grabbing touch-manipulation"
       />
 
       {/* Refresh Button */}
       {onRefresh && (
         <button
           onClick={onRefresh}
-          className="absolute top-4 right-4 z-20 w-8 h-8 bg-black/20 hover:bg-black/40 backdrop-blur-sm rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110 group"
+          className="absolute top-4 right-4 z-20 w-10 h-10 sm:w-8 sm:h-8 min-w-[44px] min-h-[44px] bg-black/20 hover:bg-black/40 backdrop-blur-sm rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110 group touch-manipulation"
           title="Refresh menu"
         >
           <svg 
@@ -1327,14 +1327,15 @@ const InfiniteMenu: FC<InfiniteMenuProps> = ({ items = [], onRefresh }) => {
           select-none
           absolute
           font-black
-          [font-size:4rem]
-          left-[1.6em]
+          text-[1.5rem] sm:text-[2.5rem] md:text-[3rem] lg:text-[4rem]
+          left-[1.6em] sm:left-[1.6em]
           top-1/2
           transform
-          translate-x-[20%]
+          translate-x-[10%] sm:translate-x-[20%]
           -translate-y-1/2
           transition-all
           ease-[cubic-bezier(0.25,0.1,0.25,1.0)]
+          px-2 sm:px-0
           ${
             isMoving
               ? "opacity-0 pointer-events-none duration-[100ms]"
@@ -1350,12 +1351,13 @@ const InfiniteMenu: FC<InfiniteMenuProps> = ({ items = [], onRefresh }) => {
               className={`
             select-none
             absolute
-            max-w-[10ch]
-            text-[1.5rem]
+            max-w-[10ch] sm:max-w-[10ch]
+            text-[0.9rem] sm:text-[1.2rem] md:text-[1.5rem]
             top-1/2
             right-[1%]
             transition-all
             ease-[cubic-bezier(0.25,0.1,0.25,1.0)]
+            px-2 sm:px-0
             ${
               isMoving
                 ? "opacity-0 pointer-events-none duration-[100ms] translate-x-[-60%] -translate-y-1/2"
@@ -1373,25 +1375,28 @@ const InfiniteMenu: FC<InfiniteMenuProps> = ({ items = [], onRefresh }) => {
           absolute
           left-1/2
           z-10
-          w-[60px]
-          h-[60px]
+          w-[50px] sm:w-[60px]
+          h-[50px] sm:h-[60px]
+          min-w-[44px]
+          min-h-[44px]
           grid
           place-items-center
           bg-[#00ffff]
-          border-[5px]
+          border-[3px] sm:border-[5px]
           border-black
           rounded-full
           cursor-pointer
           transition-all
           ease-[cubic-bezier(0.25,0.1,0.25,1.0)]
+          touch-manipulation
           ${
             isMoving
               ? "bottom-[-80px] opacity-0 pointer-events-none duration-[100ms] scale-0 -translate-x-1/2"
-              : "bottom-[3.8em] opacity-100 pointer-events-auto duration-[500ms] scale-100 -translate-x-1/2"
+              : "bottom-[2em] sm:bottom-[3.8em] opacity-100 pointer-events-auto duration-[500ms] scale-100 -translate-x-1/2"
           }
         `}
           >
-            <p className="select-none relative text-[#060010] top-[2px] text-[26px]">
+            <p className="select-none relative text-[#060010] top-[1px] sm:top-[2px] text-[20px] sm:text-[26px]">
               &#x2197;
             </p>
           </div>

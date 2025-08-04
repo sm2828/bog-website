@@ -6,6 +6,7 @@ import LightRays from "./components/LightRays";
 import InfiniteMenu from "./components/InfiniteMenu";
 import Crosshair from "./components/Crosshair";
 import LoadingScreen from "./components/LoadingScreen";
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import MobileOrientationBlocker from "./components/MobileOrientationBlocker";
 
 // Fisher-Yates shuffle algorithm
@@ -156,7 +157,7 @@ function App() {
   return (
     <>
       {isLoading && <LoadingScreen onLoadingComplete={handleLoadingComplete} />}
-      <MobileOrientationBlocker />
+      {/* <MobileOrientationBlocker /> */}
       <div className="min-h-screen relative" ref={containerRef}>
         <Crosshair containerRef={containerRef} color="#ffffff" />
         
@@ -177,8 +178,8 @@ function App() {
         
         <Header />
         
-        <main className="flex min-h-screen flex-col items-center justify-start gap-16 pt-20 pb-8 text-white text-center relative z-20">
-          <div style={{position: 'relative', height: '400px'}}>
+        <main className="flex min-h-screen flex-col items-center justify-start gap-8 sm:gap-12 md:gap-16 pt-16 sm:pt-20 pb-4 sm:pb-8 px-4 text-white text-center relative z-20">
+          <div className="relative h-[200px] sm:h-[300px] md:h-[400px] w-full">
             <TrueFocus 
               sentence="Bog The World"
               manualMode={false}
@@ -189,12 +190,12 @@ function App() {
             />
           </div>
           
-          <div style={{ height: '500px', position: 'relative', width: '100%' }}>
+          <div className="relative h-[300px] sm:h-[400px] md:h-[500px] w-full">
             <InfiniteMenu items={items} onRefresh={handleRefresh}/>
           </div>
         </main>
         
-        <footer className="text-center py-4 text-gray-400 text-sm relative z-20">
+        <footer className="text-center py-4 px-4 text-gray-400 text-xs sm:text-sm relative z-20">
           $Bog is a meme coin with no value or utility. It's just for fun. Not financial advice. Use at your own risk.
         </footer>
       </div>
