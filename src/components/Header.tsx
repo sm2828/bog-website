@@ -12,7 +12,7 @@ function Header({ title: _title = "Bog" }: HeaderProps) {
     { label: "unbogline", href: "https://jup.ag/tokens/EXgaZEkfdJMGhaK6uMcC7qnsFodEsdaLii8p442ppump" },
     { label: "bog yourself", href: "https://t.me/BogFoundry" },
     { label: "lore", href: "https://archive.4plebs.org/pol/thread/107034449/" },
-    { label: "X", href: "https://x.com/bogeveryone" },
+    { label: "X", href: "https://x.com/bogtheworld" },
     { label: "instagram", href: "https://www.instagram.com/bog__sol/" },
   ];
 
